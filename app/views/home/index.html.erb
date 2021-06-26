@@ -39,8 +39,8 @@
         <%= link_to divisions_show_path(d.date, d.number), class: "" do %>
         <div class="col-12 pull-right card">
           <div class="row text-uppercase" style="justify-content: space-between;">
-            <div class="approve"><i class="fa <%=  d.result == "Прийнято" ? "fa-check-circle" : "fa-times-circle"  %>" aria-hidden="true"></i>
-              <span><%= d.result %></span>
+            <div class="approve"><i class="fa <%=  d.result == "pass" ? "fa-check-circle" : "fa-times-circle"  %>" aria-hidden="true"></i>
+              <span><%= d.result == "pass" ? "Прийнято" : "Не прийнято" %></span>
             </div>
             <p class="card-date"><%= d.date.strftime('%d.%m.%Y') %> / <%= Time.parse(d.clock_time).strftime('%H:%M') %></p>
           </div>

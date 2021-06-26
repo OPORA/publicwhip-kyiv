@@ -6,10 +6,10 @@ class Mp < ApplicationRecord
   has_many :mp_infos, primary_key: :id, foreign_key: :deputy_id
 
   def url_name
-    self.last_name + "_" + self.first_name + "_" + self.middle_name
+    self.last_name + "_" + self.first_name + "_" + (self.middle_name.nil? ? "" : self.middle_name)
   end
   def full_name
-    self.last_name + " " + self.first_name + " " + self.middle_name
+    self.last_name + " " + self.first_name + " " + (self.middle_name.nil? ? "" : self.middle_name)
   end
   def short_name
     self.first_name + " " + self.last_name

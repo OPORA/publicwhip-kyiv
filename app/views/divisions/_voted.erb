@@ -6,8 +6,8 @@
                 <div class="col pull-right card">
                   <div class="row">
                     <div class="col-3 text-uppercase">
-                      <div class="col-12"><i class="fa <%=  d.result.gsub(/[[:space:]]/, '') == "Прийнято" ? "fa-check-circle" : "fa-times-circle"  %>" aria-hidden="true"></i></div>
-                      <p class="approve"><%= d.result %></p>
+                      <div class="col-12"><i class="fa <%=  d.result == "pass" ? "fa-check-circle" : "fa-times-circle"  %>" aria-hidden="true"></i></div>
+                      <p class="approve"><%= d.result == "pass" ? "Прийнято" : "Не прийнято" %></p>
                       <p class="card-date"><%= d.date.strftime('%d.%m.%Y') %>, <%= Time.parse(d.clock_time).strftime('%H:%M') %> </p>
                     </div>
                     <div class="col-9 card-text">

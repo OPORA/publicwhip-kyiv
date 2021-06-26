@@ -11,22 +11,22 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :domain, 'ruby.oporaua.org'
-set :deploy_to, "/home/publicwhip-ternopil/"
-set :repository, "git@github.com:OPORA/publicwhip-ternopil.git"
+set :deploy_to, "/home/publicwhip-national/"
+set :repository, "git@github.com:OPORA/publicwhip-national.git"
 set :branch, 'policy'
 
 # For system-wide RVM install.
 set :rvm_use_path,  '/usr/local/rvm/scripts/rvm'
 set :keep_releases, 2
 ## Optional settings:
-set :user, 'root'          # Username in the server to SSH to.
-set :port, '1122'           # SSH port number.
+set :user, 'beastie'          # Username in the server to SSH to.
+#set :port, '1122'           # SSH port number.
 #   set :forward_agent, true     # SSH forward_agent.
 
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
 set :shared_dirs, fetch(:shared_dirs, []).push('log', 'public/image')
 set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml', 'config/settings.yml')
-invoke :'rvm:use', 'ruby-2.4.1@default'
+invoke :'rvm:use', 'ruby-2.6.0'
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
 task :environment do

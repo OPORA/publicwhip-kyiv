@@ -48,8 +48,8 @@
                 <div class="row">
                     <div class="col text-uppercase text-xs-center">
                         <div class="approve col-12">
-                            <i class="fa <%=  @division.result.gsub(/[[:space:]]/, '') == "Прийнято" ? "fa-check-circle" : "fa-times-circle"  %>" aria-hidden="true"></i>
-                            <p class="approve"><%= @division.result %></p>
+                            <i class="fa <%=  @division.result == "pass" ? "fa-check-circle" : "fa-times-circle"  %>" aria-hidden="true"></i>
+                            <p class="approve"><%= @division.result == "pass" ? "Прийнято" : "Не прийнято" %></p>
                         </div>
                         <p class="card-date"><%= @division.date.strftime('%d.%m.%Y') %>, <%= Time.parse(@division.clock_time).strftime('%H:%M') %>  </p>
                     </div>
