@@ -11,7 +11,7 @@ namespace :deputi_cashe do
       mp = Mp.where("? >= start_date and end_date > ?", date_query, date_query)
       mp.each do |m|
         if mp.where(faction: m.faction).count >= 5
-          rebellions_month = Division.joins(:whips, :votes).where('votes.deputy_id = ? and votes.division_id  in (?)', m.id, vote_id ).where('whips.party = ?', m.faction).where("votes.vote != 'absent'").where('votes.vote != whips.whip_guess').count
+          rebellions_month = Division.joins(:whips, :votes).where('votes.deputy_id = ? and votes.division_id  in (?)', m.id, vote_id ).where('whips.party = ?', m.faction).where("whips.whip_guess != 'absent'").where("votes.vote != 'absent'").where('votes.vote != whips.whip_guess').count
         else
           rebellions_month = nil
         end
@@ -38,7 +38,7 @@ namespace :deputi_cashe do
     @mp = Mp.where(end_date: '9999-12-31')
       @mp.each do |m|
       if Mp.where(faction: m.faction, end_date: '9999-12-31').count >= 5
-        rebellions = Division.joins(:whips, :votes).where('votes.deputy_id = ?', m.id ).where('whips.party = ?', m.faction).where("votes.vote != 'absent'").where('votes.vote != whips.whip_guess').count
+        rebellions = Division.joins(:whips, :votes).where('votes.deputy_id = ?', m.id ).where('whips.party = ?', m.faction).where("whips.whip_guess != 'absent'").where("votes.vote != 'absent'").where('votes.vote != whips.whip_guess').count
       else
         rebellions = nil
       end
