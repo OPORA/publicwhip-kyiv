@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -27,14 +27,14 @@
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-   <script async src="https://www.googletagmanager.com/gtag/js?id=<%= Settings.gtag %>"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= Settings.gtag %>"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-gtag('config', '<%= Settings.gtag %>');
-</script>
+      gtag('config', '<%= Settings.gtag %>');
+  </script>
   <%= csrf_meta_tags %>
 </head>
 <body id = "<%=  body_class %>" >
@@ -47,89 +47,88 @@ gtag('config', '<%= Settings.gtag %>');
     </button>
   </div>
 <% end %>
-    <% unless request.path == "/500" %>
-    <header class="container-fluid">
-      <nav class="navbar navbar-toggleable-md navbar-light">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <% if controller.controller_path == "home" %>
-          <%= link_to "<p><i class='fa fa-circle fa-stack-1x'></i><span class='first-word'>#{Settings.name_site}</span>.Rada4You.org</p>".html_safe, root_path, class: "navbar-brand text-uppercase logo" %>
-        <% end %>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <%= link_to "Депутати", people_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Голосування", divisions_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Політики", policies_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Сумісні голосування", sumisne_holosuvannia_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Про проект", about_path, class: "nav-link"  %>
-            </li>
-          </ul>
-
-          <ul class="navbar-nav">
-            <li class="nav-item d-none d-sm-none d-md-none d-lg-block">
-              <div class="button-search">
-                <i class="fa fa-search" aria-hidden="true"></i>
-                <input type="button" value="Пошук" class="btn btn-primary" data-toggle="modal" data-target="#ModalSearch" >
-              </div>
-            </li>
-            <% if user_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to current_user.user_name, edit_user_registration_path, class: "nav-link"  %>
-                </li>
-            <% else %>
-             <li class="nav-item reg-link">
-                <%= link_to "Вхід",  new_user_session_path, class: "nav-link"  %>
-              </li>
-                <li class="nav-item span d-none d-lg-block" style="padding-left: 0; padding-right: 0"><span>/</span></li>
-              <li class="nav-item reg-link">
-                <%= link_to "Реєстрація", new_user_registration_path, class: "nav-link reg-link"  %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </nav>
+<% unless request.path == "/500" %>
+  <header class="container-fluid">
+    <nav class="navbar navbar-toggleable-md navbar-light">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <% if controller.controller_path == "home" %>
-        <div id="info" class="container">
-            <div class="row justify-content-end">
-                <div class="col-lg-3 col-6 update-data">
+        <%= link_to "<p><i class='fa fa-circle fa-stack-1x'></i><span class='first-word'>#{Settings.name_site}</span>.Rada4You.org</p>".html_safe, root_path, class: "navbar-brand text-uppercase logo" %>
+      <% end %>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to "Депутати", people_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Голосування", divisions_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Політики", policies_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Сумісні голосування", sumisne_holosuvannia_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Про проект", about_path, class: "nav-link"  %>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav">
+          <li class="nav-item d-none d-sm-none d-md-none d-lg-block">
+            <div class="button-search">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <input type="button" value="Пошук" class="btn btn-primary" data-toggle="modal" data-target="#ModalSearch" >
+            </div>
+          </li>
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to current_user.user_name, edit_user_registration_path, class: "nav-link"  %>
+            </li>
+          <% else %>
+            <li class="nav-item reg-link">
+              <%= link_to "Вхід",  new_user_session_path, class: "nav-link"  %>
+            </li>
+            <li class="nav-item span d-none d-lg-block" style="padding-left: 0; padding-right: 0"><span>/</span></li>
+            <li class="nav-item reg-link">
+              <%= link_to "Реєстрація", new_user_registration_path, class: "nav-link reg-link"  %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+    <% if controller.controller_path == "home" %>
+      <div id="info" class="container">
+        <div class="row justify-content-end">
+          <div class="col-lg-3 col-6 update-data">
                    <span class="fa-stack">
                               <i class="fa fa-circle fa-stack-2x"></i>
                               <i class="fa fa-clock-o fa-stack-1x fa-inverse" aria-hidden="true"></i>
                           </span>
-                    <p class="text-uppercase">Оновлення даних</p>
-                    <p><%= last_update_rada %></p>
-                </div>
-                <div class="col-lg-3 col-6 rada-date">
+            <p class="text-uppercase">Оновлення даних</p>
+            <p><%= last_update_rada %></p>
+          </div>
+          <div class="col-lg-3 col-6 rada-date">
                     <span class="fa-stack">
                               <i class="fa fa-circle fa-stack-2x"></i>
                               <i class="fa fa-clock-o fa-stack-1x fa-inverse" aria-hidden="true"></i>
                           </span>
-                    <p class="text-uppercase">Засідання ВРУ</p>
-                    <p><%= last_sessions_rada() %></p>
-                </div>
-            </div>
+            <p class="text-uppercase">Засідання міськради</p>
+            <p><%= last_sessions_rada() %></p>
+          </div>
         </div>
-        <div style="clear: both;"></div>
-      <% end %>
+      </div>
+      <div style="clear: both;"></div>
+    <% end %>
+    <% if controller.controller_path != "home" %>
+      </header>
+      <div id="info" class="container">
+        <%= link_to "<p><i class='fa fa-circle fa-stack-1x'></i><span class='first-word'>#{Settings.name_site}</span>.Rada4You.org</p>".html_safe, root_path, class: "col-4 navbar-brand text-uppercase logo", id: "logo" %>
 
-      <% if controller.controller_path != "home" %>
-            </header>
-          <div id="info" class="container">
-              <%= link_to "<p><i class='fa fa-circle fa-stack-1x'></i><span class='first-word'>#{Settings.name_site}</span>.Rada4You.org</p>".html_safe, root_path, class: "col-4 navbar-brand text-uppercase logo", id: "logo" %>
-
-              <div class="row justify-content-end">
-              <% if controller.controller_path != "errors" %>
-              <% unless controller.controller_path == "policy_pepole" %>
+        <div class="row justify-content-end">
+          <% if controller.controller_path != "errors" %>
+            <% unless controller.controller_path == "policy_pepole" %>
               <div class="col-lg-3 col-6 update-data">
                           <span class="fa-stack">
                               <i class="fa fa-clock-o fa-stack-1x fa-inverse" aria-hidden="true"></i>
@@ -137,76 +136,75 @@ gtag('config', '<%= Settings.gtag %>');
                 <p class="text-uppercase">Оновлення даних</p>
                 <p><%= last_update_rada %></p>
               </div>
-              <%end%>
-              <div class="col-lg-3 col-6 rada-date">
+            <%end%>
+            <div class="col-lg-3 col-6 rada-date">
                           <span class="fa-stack">
                               <i class="fa fa-clock-o fa-stack-1x fa-inverse" aria-hidden="true"></i>
                           </span>
-                <p class="text-uppercase">Засідання міськради</p>
-                <p><%= last_sessions_rada() %></p>
-              </div>
-              <% end %>
+              <p class="text-uppercase">Засідання міськради</p>
+              <p><%= last_sessions_rada() %></p>
             </div>
-          </div>
-      <% end %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-
-  <%= yield %>
+<% end %>
+<%= yield %>
 <% unless request.path == "/500" %>
-<footer>
-  <div class="container">
-    <div class="col-12"><p class="text-center title">Проект Громадянської мережі <%= link_to "ОПОРА", "http://oporaua.org", target: "_blank"  %></p></div>
-    <div class="row">
-      <div class="col-12 col-md-4 col-lg-4 col-xs-4"><span>Усі дані та програмне забезпечення надаються з відкритим вихідним кодом та є вільними для поширення </span></div>
-      <div class="col-12 col-md-4 col-lg-4 col-xs-4">
+  <footer>
+    <div class="container">
+      <div class="col-12"><p class="text-center title">Проект Громадянської мережі <%= link_to "ОПОРА", "http://oporaua.org", target: "_blank"  %></p></div>
+      <div class="row">
+        <div class="col-12 col-md-4 col-lg-4 col-xs-4"><span>Усі дані та програмне забезпечення надаються з відкритим вихідним кодом та є вільними для поширення </span></div>
+        <div class="col-12 col-md-4 col-lg-4 col-xs-4">
                     <span class="fa-stack fa-2x">
                         <a href="https://facebook.com/DorogiDeputaty"><i class="fa fa-circle-thin fa-stack-2x"></i>
                           <i class="fa fa-facebook fa-stack-1x fa-inverse" aria-hidden="true"></i></a>
                     </span>
-        <span class="fa-stack fa-2x">
+          <span class="fa-stack fa-2x">
                         <a href="https://twitter.com/rada4you"><i class="fa fa-circle-thin fa-stack-2x"></i>
                           <i class="fa fa-twitter fa-stack-1x fa-inverse" aria-hidden="true"></i></a>
                     </span>
-        <span class="fa-stack fa-2x">
+          <span class="fa-stack fa-2x">
                         <a href="mailto:rada4you@opora.org.ua"><i class="fa fa-circle-thin fa-stack-2x"></i>
                           <i class="fa fa-envelope fa-stack-1x fa-inverse" aria-hidden="true"></i></a>
                     </span>
 
-      </div>
-      <div class="col-12 col-md-4 col-lg-4 col-xs-4 text-uppercase">
-        <p><%= link_to "API", help_data_path, rel: "nofollow"  %></p>
-        <p><%= link_to "Поширені питання/FAQ", "https://rada4you.org/help/faq", rel: "nofollow" %></p>
-        <p><%= link_to "Мапа сервісів", "https://rada4you.org/map", rel: "nofollow" %></p>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4 col-xs-4 text-uppercase">
+          <p><%= link_to "API", help_data_path, rel: "nofollow"  %></p>
+          <p><%= link_to "Поширені питання/FAQ", "https://rada4you.org/help/faq", rel: "nofollow" %></p>
+          <p><%= link_to "Мапа сервісів", "https://rada4you.org/map", rel: "nofollow" %></p>
 
+        </div>
       </div>
+    </div>
+
+  </footer>
+<% end %>
+<!-- Modal search -->
+<div id="ModalSearch" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <%= link_to "<p><i class='fa fa-circle fa-stack-1x'></i><span class='first-word'>#{Settings.name_site}</span>.Rada4You.org</p>".html_safe, root_path, class: "col navbar-brand text-uppercase logo" %>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <span>Пошук по сайту</span>
+        <%= form_tag(search_path, method: "get", remote: true ) do  %>
+          <%= text_field_tag(:query, params[:query], placeholder: "Уведіть пошуковий запит" ) %>
+        <% end %>
+        <div id="search"></div>
+      </div>
+
     </div>
   </div>
-
-</footer>
-<% end %>
-    <!-- Modal search -->
-    <div id="ModalSearch" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                      <%= link_to "<p><i class='fa fa-circle fa-stack-1x'></i><span class='first-word'>#{Settings.name_site}</span>.Rada4You.org</p>".html_safe, root_path, class: "col navbar-brand text-uppercase logo" %>
-                    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <span>Пошук по сайту</span>
-                  <%= form_tag(search_path, method: "get", remote: true ) do  %>
-                      <%= text_field_tag(:query, params[:query], placeholder: "Уведіть пошуковий запит" ) %>
-                  <% end %>
-                  <div id="search"></div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
+</div>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
